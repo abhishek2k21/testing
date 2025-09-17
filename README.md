@@ -1,3 +1,8 @@
+curl --location 'https://fastag-issuer-netc-engine-nonprod-internal.paytmbank.com:443/reqPayService' \
+--header 'Content-Type: text/plain' \
+--data-raw '<?xml version="1.0" encoding="UTF-8"?><etc:ReqPay xmlns:etc="http://npci.org/etc/schema/"><Head msgId="ACQ000011894208925" orgId="ICIA" ts="2025-09-09T12:18:56" ver="1.0"/><Meta><Tag name="PAYREQSTART" value="2025-09-09T12:18:55"/><Tag name="PAYREQEND" value="2025-09-09T12:18:55"/></Meta><Txn id="005582957135" orgTxnId="" refId="257001L02090925121823" refUrl="" ts="2025-09-09T12:18:55" type="DEBIT"><RiskScores><Score provider="NPCI" type="TXNRISK" value="00999"/></RiskScores></Txn><Merchant geoCode="13.476043,74.7127896" id="257001" name="Sasthan Toll Plaza" subtype="National" type="Toll"><Lane direction="N" id="L02" readerId=""/><Parking floor="" readerId="" slotId="" zone=""/><ReaderVerificationResult procRestrictionResult="" publicKeyCVV="" signAuth="VALID" signData="" tagVerified="NETC TAG" tsRead="2025-09-09T12:18:23" txnCounter="5485" txnStatus="SUCCESS" vehicleAuth="UNKNOWN"/></Merchant><Vehicle TID="E20034120124FF000AC920EB" avc="VC20" tagId="34161FA820929E40071FFDR3" wim=""><VehicleDetails><Detail name="VEHICLECLASS" value="VC4"/><Detail name="REGNUMBER" value="FWErWPwwRIGBzEqc/kG4zAtQbEeSLuc+jH5rRL6c7zrGDPI6mYqe71mJhtfIc0nx+4dwmvw7ltr1E0NNk/zUTx9g/h8bc/ZQ/brouCWtJo6c+m1A2FX0hEENnKAwhQdxRLlBG8794JYk+j7HPePiFforClkbOrwf6Tioq66Fxs5jG7oUQ7qioF0AD4n2VzDZPAIvBucJOXuvQbYYO0EwiELxSmfT96rGS6lJeT8DlLnLKFAN/TRvuflHVYxkyJ7NJcndYv8UlFE44j89pnX+c9xoK2qLy8Jdud18HuMnU9IRc+aFa5+XH/ci+vv1pAXZrF7EJ5g+u8mhisjij2P7NQ=="/><Detail name="TAGSTATUS" value="A"/><Detail name="ISSUEDATE" value="19-12-2019"/><Detail name="EXCCODE" value="00"/><Detail name="BANKID" value="608032"/><Detail name="COMVEHICLE" value="F"/></VehicleDetails></Vehicle><Payer addr="34161FA820328E40071FFFC0@608032.iin.npci" name="" type="PERSON"><Amount curr="INR" value="30.00"/></Payer><Payee addr="720301@iin.npci" name="" type="MERCHANT"/></etc:ReqPay>'
+
+
 
 Time	message	level	mdc.x_request_id	req.id
 	Sep 16, 2025 @ 12:28:13.166	className=AsyncTransactionRepository, methodName=save, group=DB, Time elapsed=10 ms	INFO	 - 	7083c14d-0f77-411b-be95-bf3942041502
@@ -96,3 +101,56 @@ lwHn/xSu</X509Certificate></X509Data></KeyInfo></Signature></etc:RespPay>	INFO	 
 	Sep 16, 2025 @ 12:28:12.768	API : POST:/reqPayService, timeConsumed : 6, responseHttpCode  : 202, appId : null	INFO	 - 	7083c14d-0f77-411b-be95-bf3942041502
  	Sep 16, 2025 @ 12:28:12.765	sending to topic='fastag_issuer_staging_req_pay_xml' and data='{"namespace":"http://npci.org/etc/schema/","header":{"version":"1.0","timeStamp":"2025-09-09T12:18:56","organizationId":"ICIA","messageId":"ACQ000011894208925"},"metaTags":[{"name":"PAYREQSTART","value":"2025-09-09T12:18:55"},{"name":"PAYREQEND","value":"2025-09-09T12:18:55"}],"transaction":{"id":"005582957135","referenceId":"257001L02090925121823","timeStamp":"2025-09-09T12:18:55","type":"DEBIT","riskScores":[{"provider":"NPCI","type":"TXNRISK","value":"00999"}]},"merchant":{"id":"257001","name":"Sasthan Toll Plaza","geoCode":"13.476043,74.7127896","type":"Toll","subtype":"National","lane":{"id":"L02","direction":"N"},"parking":{},"verificationResult":{"tsRead":"2025-09-09T12:18:23","signAuth":"VALID","tagVerified":"NETC TAG","vehicleAuth":"UNKNOWN","txnCounter":"5485","txnStatus":"SUCCESS"}},"vehicle":{"tagId":"34161FA820929E40071FFDR3","vehicleTId":"E20034120124FF000AC920EB","vehicleClassByAvc":"VC20","vehicleDetails":{"details":[{"name":"VEHICLECLASS","value":"VC4"},{"name":"REGNUMBER","value":"FWErWPwwRIGBzEqc/kG4zAtQbEeSLuc+jH5rRL6c7zrGDPI6mYqe71mJhtfIc0nx+4dwmvw7ltr1E0NNk/zUTx9g/h8bc/ZQ/brouCWtJo6c+m1A2FX0hEENnKAwhQdxRLlBG8794JYk+j7HPePiFforClkbOrwf6Tioq66Fxs5jG7oUQ7qioF0AD4n2VzDZPAIvBucJOXuvQbYYO0EwiELxSmfT96rGS6lJeT8DlLnLKFAN/TRvuflHVYxkyJ7NJcndYv8UlFE44j89pnX+c9xoK2qLy8Jdud18HuMnU9IRc+aFa5+XH/ci+vv1pAXZrF7EJ5g+u8mhisjij2P7NQ=="},{"name":"ISSUEDATE","value":"19-12-2019"},{"name":"COMVEHICLE","value":"F"},{"name":"BANKID","value":"608032"},{"name":"EXCCODE","value":"00"},{"name":"TAGSTATUS","value":"A"}]}},"payer":{"addr":"34161FA820328E40071FFFC0@608032.iin.npci","type":"PERSON","amount":{"value":"30.00","curr":"INR"}},"payee":{"addr":"720301@iin.npci","type":"MERCHANT"}}'	INFO	 - 	7083c14d-0f77-411b-be95-bf3942041502
 	Sep 16, 2025 @ 12:28:12.763	reqPayService from NPCI with data : <?xml version="1.0" encoding="UTF-8"?><etc:ReqPay xmlns:etc="http://npci.org/etc/schema/"><Head msgId="ACQ000011894208925" orgId="ICIA" ts="2025-09-09T12:18:56" ver="1.0"/><Meta><Tag name="PAYREQSTART" value="2025-09-09T12:18:55"/><Tag name="PAYREQEND" value="2025-09-09T12:18:55"/></Meta><Txn id="005582957135" orgTxnId="" refId="257001L02090925121823" refUrl="" ts="2025-09-09T12:18:55" type="DEBIT"><RiskScores><Score provider="NPCI" type="TXNRISK" value="00999"/></RiskScores></Txn><Merchant geoCode="13.476043,74.7127896" id="257001" name="Sasthan Toll Plaza" subtype="National" type="Toll"><Lane direction="N" id="L02" readerId=""/><Parking floor="" readerId="" slotId="" zone=""/><ReaderVerificationResult procRestrictionResult="" publicKeyCVV="" signAuth="VALID" signData="" tagVerified="NETC TAG" tsRead="2025-09-09T12:18:23" txnCounter="5485" txnStatus="SUCCESS" vehicleAuth="UNKNOWN"/></Merchant><Vehicle TID="E20034120124FF000AC920EB" avc="VC20" tagId="34161FA820929E40071FFDR3" wim=""><VehicleDetails><Detail name="VEHICLECLASS" value="VC4"/><Detail name="REGNUMBER" value="FWErWPwwRIGBzEqc/kG4zAtQbEeSLuc+jH5rRL6c7zrGDPI6mYqe71mJhtfIc0nx+4dwmvw7ltr1E0NNk/zUTx9g/h8bc/ZQ/brouCWtJo6c+m1A2FX0hEENnKAwhQdxRLlBG8794JYk+j7HPePiFforClkbOrwf6Tioq66Fxs5jG7oUQ7qioF0AD4n2VzDZPAIvBucJOXuvQbYYO0EwiELxSmfT96rGS6lJeT8DlLnLKFAN/TRvuflHVYxkyJ7NJcndYv8UlFE44j89pnX+c9xoK2qLy8Jdud18HuMnU9IRc+aFa5+XH/ci+vv1pAXZrF7EJ5g+u8mhisjij2P7NQ=="/><Detail name="TAGSTATUS" value="A"/><Detail name="ISSUEDATE" value="19-12-2019"/><Detail name="EXCCODE" value="00"/><Detail name="BANKID" value="608032"/><Detail name="COMVEHICLE" value="F"/></VehicleDetails></Vehicle><Payer addr="34161FA820328E40071FFFC0@608032.iin.npci" name="" type="PERSON"><Amount curr="INR" value="30.00"/></Payer><Payee addr="720301@iin.npci" name="" type="MERCHANT"/></etc:ReqPay> 	INFO
+
+
+mysql> select * from transaction where tag_id = '34161FA820929E40071FFDR3' \G;
+*************************** 1. row ***************************
+                   id: 2416427420
+             efkon_id: NULL
+               tag_id: 34161FA820929E40071FFDR3
+          npci_txn_id: 005582957135
+          npci_msg_id: ACQ000011894208925
+          acquirer_id: 720301
+              veh_tid: E20034120124FF000AC920EB
+             plaza_id: 257001
+              lane_id: L02
+             lane_dir: N
+           txn_status: 3
+        wallet_status: NULL
+ npci_resp_pay_status: 2
+   resp_pay_http_code: 202
+       rejection_code: 152
+       rejection_desc: Transaction tag ID does not exist in our system
+        parent_txn_id: NULL
+           org_txn_id: 
+          npci_org_id: ICIA
+                  avc: VC20
+                  wim: 
+          reader_time: 2025-09-09 12:18:23
+   npci_resp_pay_time: 2025-09-16 12:28:13
+  wallet_consume_time: NULL
+        withdraw_time: NULL
+wallet_transaction_id: NULL
+        npci_msg_time: 2025-09-09 12:18:56
+             ack_time: 2025-09-16 12:28:12
+               amount: 30
+             txn_type: DEBIT
+          customer_id: NULL
+ vehicle_details_meta: {"iss_dt": "19-12-2019", "bank_id": "608032", "com_veh": "F", "reg_num": "FWErWPwwRIGBzEqc/kG4zAtQbEeSLuc+jH5rRL6c7zrGDPI6mYqe71mJhtfIc0nx+4dwmvw7ltr1E0NNk/zUTx9g/h8bc/ZQ/brouCWtJo6c+m1A2FX0hEENnKAwhQdxRLlBG8794JYk+j7HPePiFforClkbOrwf6Tioq66Fxs5jG7oUQ7qioF0AD4n2VzDZPAIvBucJOXuvQbYYO0EwiELxSmfT96rGS6lJeT8DlLnLKFAN/TRvuflHVYxkyJ7NJcndYv8UlFE44j89pnX+c9xoK2qLy8Jdud18HuMnU9IRc+aFa5+XH/ci+vv1pAXZrF7EJ5g+u8mhisjij2P7NQ==", "veh_cls": "VC4", "exc_code": "00", "tag_status": "A"}
+   payee_details_meta: {"add": "720301@iin.npci", "name": "", "type": "MERCHANT"}
+   payer_details_meta: {"add": "34161FA820328E40071FFFC0@608032.iin.npci", "curr": "INR", "name": "", "type": "PERSON"}
+             txn_meta: {"note": null, "ref_id": "257001L02090925121823", "txn_dt": "2025-09-09T12:18:55", "ref_url": "", "org_txn_id": ""}
+                 meta: {"utid": "257001_005582957135_30.0_34161FA820929E40071FFDR3_250909121855_D", "source": "NPCI", "netc_engine_id": 3847808557, "npci_rejection_code": "052", "npci_sub_error_code": "{054}"}
+      risk_score_meta: [{"type": "TXNRISK", "value": "00999", "provider": "NPCI"}]
+        merchant_meta: {"tp": "Toll", "name": "Sasthan Toll Plaza", "rdr_id": "257001", "sub_tp": "National", "geo_code": "13.476043,74.7127896", "parking_det": {"floor": "", "readerId": "", "exitGateNumber": "", "entryGateNumber": ""}, "rdr_ver_res": {"tag_ver": "NETC TAG", "txn_ctr": "5485", "txn_sts": "SUCCESS", "veh_auth": "UNKNOWN", "sign_auth": "VALID", "sign_data": "", "proc_rest_res": "", "public_key_cvv": ""}}
+             group_id: NULL
+           created_at: 2025-09-16 12:28:13
+           updated_at: 2025-09-16 12:28:13
+       temp_timestamp: 2025-09-16 12:28:12
+                 type: 1
+      settlement_time: NULL
+1 row in set (0.00 sec)
+
+ERROR: 
+No query specified
+
