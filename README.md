@@ -1,199 +1,41 @@
-
-
-D
-Discover
-
-
- 
-New
-
-Save
-
-Open
-
-Share
-
-Inspect
-
-
-
-
-KQL
-
-
-
-Today
-Show dates
-
-
-Refresh
-
-
-+ Add filter
- 
-
-fastagstaging_fastag-issuer-switch_application-*
-
-
-
-
-Filter by type
-0
-Selected fields
-
-level
-
-Remove
-
-message
-
-Remove
-
-req.id
-
-Remove
-Available fields
-
-
-_id
-
-Add
-
-_index
-
-Add
-
-_score
-
-Add
-
-_type
-
-Add
-
-@timestamp
-
-Add
-
-@version
-
-Add
-
-endOfBatch
-
-Add
-
-fields.hostname
-
-Add
-
-hostname
-
-Add
-
-instant.epochSecond
-
-Add
-
-instant.nanoOfSecond
-
-Add
-
-log.file.path
-
-Add
-
-loggerFqcn
-
-Add
-
-loggerName
-
-Add
-
-pids
-
-Add
-
-tag.env
-
-Add
-
-tag.logtype
-
-Add
-
-tag.service_name
-
-Add
-
-thread
-
-Add
-
-threadId
-
-Add
-
-threadPriority
-
-Add
-
-thrown.cause.commonElementCount
-
-Add
-
-thrown.cause.extendedStackTrace
-
-Add
-
-thrown.cause.localizedMessage
-
-Add
-
-thrown.cause.message
-
-Add
-
-thrown.cause.name
-
-Add
-
-thrown.commonElementCount
-
-Add
-
-thrown.extendedStackTrace
-
-Add
-
-thrown.localizedMessage
-
-Add
-
-thrown.message
-
-Add
-
-thrown.name
-
-Add
-
-time
-
-Add
-
-uuid
-
-Add
- 
-150 hits
-Sep 18, 2025 @ 00:00:00.000 - Sep 18, 2025 @ 23:59:59.999
-
-
-Documents
-Time	message	level	req.id
-	Sep 18, 2025 @ 12:14:10.669	url : https://wallet-staging.paytmbank.com/wallet-web/internal/fastageventRegister, method : POST, responseBody : WalletEventRegisterResponse(status=SUCCESS, statusCode=FTE_000, statusMessage=Fastag event updated successfully), httpStatus : 200 OK	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+curl --location 'https://fastag-issuer-netc-engine-nonprod-internal.paytmbank.com:443/reqPayService' \
+--header 'Content-Type: text/plain' \
+--data-raw '<?xml version="1.0" encoding="UTF-8"?>
+<etc:ReqPay xmlns:etc="http://npci.org/etc/schema/">
+    <Head msgId="ACQ000011894208925" orgId="ICIA" ts="2025-09-09T12:18:56" ver="1.0"/>
+    <Meta>
+        <Tag name="PAYREQSTART" value="2025-09-09T12:18:55"/>
+        <Tag name="PAYREQEND" value="2025-09-09T12:18:55"/>
+    </Meta>
+    <Txn id="005582957135" orgTxnId="" refId="257001L02090925121823" refUrl="" ts="2025-09-09T12:18:55" type="DEBIT">
+        <RiskScores>
+            <Score provider="NPCI" type="TXNRISK" value="00999"/>
+        </RiskScores>
+    </Txn>
+    <Merchant geoCode="13.476043,74.7127896" id="257001" name="Sasthan Toll Plaza" subtype="National" type="Toll">
+        <Lane direction="N" id="L02" readerId=""/>
+        <Parking floor="" readerId="" slotId="" zone=""/>
+        <ReaderVerificationResult procRestrictionResult="" publicKeyCVV="" signAuth="VALID" signData="" tagVerified="NETC TAG" tsRead="2025-09-09T12:18:23" txnCounter="5485" txnStatus="SUCCESS" vehicleAuth="UNKNOWN"/>
+    </Merchant>
+    <Vehicle TID="E20034120124FF000AC920EB" avc="VC20" tagId="34161FJ820929E40071FODR3" wim="">
+        <VehicleDetails>
+            <Detail name="VEHICLECLASS" value="VC4"/>
+            <Detail name="REGNUMBER" value="FWErWPwwRIGBzEqc/kG4zAtQbEeSLuc+jH5rRL6c7zrGDPI6mYqe71mJhtfIc0nx+4dwmvw7ltr1E0NNk/zUTx9g/h8bc/ZQ/brouCWtJo6c+m1A2FX0hEENnKAwhQdxRLlBG8794JYk+j7HPePiFforClkbOrwf6Tioq66Fxs5jG7oUQ7qioF0AD4n2VzDZPAIvBucJOXuvQbYYO0EwiELxSmfT96rGS6lJeT8DlLnLKFAN/TRvuflHVYxkyJ7NJcndYv8UlFE44j89pnX+c9xoK2qLy8Jdud18HuMnU9IRc+aFa5+XH/ci+vv1pAXZrF7EJ5g+u8mhisjij2P7NQ=="/>
+            <Detail name="TAGSTATUS" value="A"/>
+            <Detail name="ISSUEDATE" value="19-12-2019"/>
+            <Detail name="EXCCODE" value="00"/>
+            <Detail name="BANKID" value="608032"/>
+            <Detail name="COMVEHICLE" value="F"/>
+        </VehicleDetails>
+    </Vehicle>
+    <Payer addr="34161FA820328E40071FFFC0@608032.iin.npci" name="" type="PERSON">
+        <Amount curr="INR" value="30.00"/>
+    </Payer>
+    <Payee addr="720301@iin.npci" name="" type="MERCHANT"/>
+</etc:ReqPay>'
+
+
+Sep 18, 2025 @ 12:14:10.669	url : https://wallet-staging.paytmbank.com/wallet-web/internal/fastageventRegister, method : POST, responseBody : WalletEventRegisterResponse(status=SUCCESS, statusCode=FTE_000, statusMessage=Fastag event updated successfully), httpStatus : 200 OK	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
 	Sep 18, 2025 @ 12:14:10.669	[processRegisterWalletEvent] Response [Wallet Event Register] for custId:1000428916 | {"status":"SUCCESS","statusCode":"FTE_000","statusMessage":"Fastag event updated successfully"}	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
 	Sep 18, 2025 @ 12:14:10.624	Request [Wallet Event Register] for custId: 1000428916 | {"request":{"custID":1000428916,"events":["credit"],"register":true},"platformName":"PayTM","operationType":"FASTAG_EVENT_REGISTER"}	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
 	Sep 18, 2025 @ 12:14:10.624	url : https://wallet-staging.paytmbank.com/wallet-web/internal/fastageventRegister, method : POST, requestBody : WalletEventRegisterRequest(request=WalletEventRegisterRequest.Request(customerId=1000428916, events=[credit], register=true), platformName=PayTM, operationType=FASTAG_EVENT_REGISTER)	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
@@ -515,54 +357,461 @@ Time	message	level	req.id
 	Sep 18, 2025 @ 12:12:07.787	[KafkaListenerAspect] consumer name : consume_transaction_validation , appId: NetcEngine	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
 ​
 
-mysql> select * from transaction where tag_id = '34161FJ820929E40071FODR3' \G;
-*************************** 1. row ***************************
-                   id: 2416427427
-             efkon_id: NULL
-               tag_id: 34161FJ820929E40071FODR3
-          npci_txn_id: 005582957135
-          npci_msg_id: ACQ000011894208925
-          acquirer_id: 720301
-              veh_tid: E20034120124FF000AC920EB
-             plaza_id: 257001
-              lane_id: L02
-             lane_dir: N
-           txn_status: 3
-        wallet_status: NULL
- npci_resp_pay_status: 2
-   resp_pay_http_code: 202
-       rejection_code: 152
-       rejection_desc: Transaction tag ID does not exist in our system
-        parent_txn_id: NULL
-           org_txn_id: 
-          npci_org_id: ICIA
-                  avc: VC20
-                  wim: 
-          reader_time: 2025-09-09 12:18:23
-   npci_resp_pay_time: 2025-09-18 14:03:33
-  wallet_consume_time: NULL
-        withdraw_time: NULL
-wallet_transaction_id: NULL
-        npci_msg_time: 2025-09-09 12:18:56
-             ack_time: 2025-09-18 14:03:32
-               amount: 30
-             txn_type: DEBIT
-          customer_id: NULL
- vehicle_details_meta: {"iss_dt": "19-12-2019", "bank_id": "608032", "com_veh": "F", "reg_num": "FWErWPwwRIGBzEqc/kG4zAtQbEeSLuc+jH5rRL6c7zrGDPI6mYqe71mJhtfIc0nx+4dwmvw7ltr1E0NNk/zUTx9g/h8bc/ZQ/brouCWtJo6c+m1A2FX0hEENnKAwhQdxRLlBG8794JYk+j7HPePiFforClkbOrwf6Tioq66Fxs5jG7oUQ7qioF0AD4n2VzDZPAIvBucJOXuvQbYYO0EwiELxSmfT96rGS6lJeT8DlLnLKFAN/TRvuflHVYxkyJ7NJcndYv8UlFE44j89pnX+c9xoK2qLy8Jdud18HuMnU9IRc+aFa5+XH/ci+vv1pAXZrF7EJ5g+u8mhisjij2P7NQ==", "veh_cls": "VC4", "exc_code": "00", "tag_status": "A"}
-   payee_details_meta: {"add": "720301@iin.npci", "name": "", "type": "MERCHANT"}
-   payer_details_meta: {"add": "34161FA820328E40071FFFC0@608032.iin.npci", "curr": "INR", "name": "", "type": "PERSON"}
-             txn_meta: {"note": null, "ref_id": "257001L02090925121823", "txn_dt": "2025-09-09T12:18:55", "ref_url": "", "org_txn_id": ""}
-                 meta: {"utid": "257001_005582957135_30.0_34161FJ820929E40071FODR3_250909121855_D", "source": "NPCI", "netc_engine_id": 3847808571, "npci_rejection_code": "052", "npci_sub_error_code": "{054}"}
-      risk_score_meta: [{"type": "TXNRISK", "value": "00999", "provider": "NPCI"}]
-        merchant_meta: {"tp": "Toll", "name": "Sasthan Toll Plaza", "rdr_id": "257001", "sub_tp": "National", "geo_code": "13.476043,74.7127896", "parking_det": {"floor": "", "readerId": "", "exitGateNumber": "", "entryGateNumber": ""}, "rdr_ver_res": {"tag_ver": "NETC TAG", "txn_ctr": "5485", "txn_sts": "SUCCESS", "veh_auth": "UNKNOWN", "sign_auth": "VALID", "sign_data": "", "proc_rest_res": "", "public_key_cvv": ""}}
-             group_id: NULL
-           created_at: 2025-09-18 14:03:33
-           updated_at: 2025-09-18 14:03:33
-       temp_timestamp: 2025-09-18 14:03:32
-                 type: 1
-      settlement_time: NULL
-1 row in set (0.01 sec)
-
-ERROR: 
-No query specified
+	Sep 18, 2025 @ 12:14:09.173	Kafka version: 3.1.2	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:14:09.173	Kafka commitId: f8c67dc3ae0a3265	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:14:09.173	Kafka startTimeMs: 1758177849173	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:14:09.170	ProducerConfig values: 
+	acks = 1
+	batch.size = 16384
+	bootstrap.servers = [10.100.241.139:9092, 10.100.241.140:9092, 10.100.241.141:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = producer-5
+	compression.type = snappy
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = false
+	interceptor.classes = [com.paytm.acquirer.netc.config.CorrelationIdProducerInterceptor]
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 20
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 1000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.springframework.kafka.support.serializer.JsonSerializer
+	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:14:09.170	Idempotence will be disabled because acks is set to 1, not set to 'all'.	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:14:09.170	sending data to topic='fastag_issuer_staging_response_queue' and data='{"res_type_enum":"RESPPAY","response_data":"{\"ts\":\"2025-09-18T12:14:09\",\"reference_id\":2416427424,\"http_code\":\"202\"}"}'	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:14:09.168	className=AsyncTransactionRepository, methodName=save, group=DB, Time elapsed=12 ms	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:14:09.155	className=AsyncTransactionRepository, methodName=findById, group=DB, Time elapsed=44 ms	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:14:09.109	RespPay response code: 202 ACCEPTED for msgId: ACQ000011894208925	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:14:09.109	url : http://middleware-banktest-automation.eks-mwite1/genericMock2/Svs-IssuerNPCI/responsePayService, method : POST, responseBody : null, httpStatus : 202 ACCEPTED	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:14:09.050	hitting netc service for respPay	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:14:09.050	url : http://middleware-banktest-automation.eks-mwite1/genericMock2/Svs-IssuerNPCI/responsePayService, method : POST, requestBody : <?xml version="1.0" encoding="UTF-8" standalone="no"?><etc:RespPay xmlns:etc="http://npci.org/etc/schema/"><Head msgId="ACQ000011894208925" orgId="PAYM" ts="2025-09-18T12:14:08" ver="1.0"/><Txn id="00558295713515" note="" orgTxnId="" refId="257001L02090925121823" refUrl="" ts="2025-09-09T12:18:55" type="DEBIT"><RiskScores><Score provider="NPCI" type="TXNRISK" value="00999"/></RiskScores></Txn><Resp merchantId="257001" respCode="000" result="ACCEPTED" ts="2025-09-18T12:14:08"><Ref accType="" addr="34161FA820328E40071FFFC0@608032.iin.npci" approvalNum="7424" avalBal="" customerName="" errCode="081" ledgerBal="" maskedAccountNumber="" settAmount="90.00" settCurrency="INR" type="PAYER"/></Resp><Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><DigestValue>VZOJUYkidcoM7GZwziFKdpGj45rOM08dnNrzAa5X1Kw=</DigestValue></Reference></SignedInfo><SignatureValue>CJ1rPfBxKSi4q0NriY+EFgs/Khpb/v+n4n54gHnbMxgrmsrsCv7OWnVCKJkCK+gRGBOhe61gWWFV&#13;
+O7U/+ASrjpO9aP3DSG9L9uYdUniBHKzMZAZ7LnG71KBkvihastfqHiYz8wBiOFgMvx9yh0Z04OWr&#13;
++AtC869UVln2T1DNCv6bcwadaRaDhQ0XuBevzORZLxQQA4m9UkO+V5PwkT2ifAzuCGgwfTusoaKQ&#13;
+S8pFu86FrQeej1WzIpRbvsdVuF/z+BmAL1eT0eUerkp8WW6YyMVqhtdLYvuI0EoZgfTVAMoWzVTx&#13;
+v59SOJcyDHTh3Q3kMghzt5qk+Uw6o18Rm6rYuQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=netc-uat.paytm.com,O=One97 Communications Limited,L=Noida,ST=Uttar Pradesh,C=IN</X509SubjectName><X509Certificate>MIIHIjCCBgqgAwIBAgIQDc2bPRcBC8If34pOCuNLXzANBgkqhkiG9w0BAQsFADBNMQswCQYDVQQG&#13;
+EwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMScwJQYDVQQDEx5EaWdpQ2VydCBTSEEyIFNlY3Vy&#13;
+ZSBTZXJ2ZXIgQ0EwHhcNMTgwMzI4MDAwMDAwWhcNMjAwNjMwMDAwMDAwWjB5MQswCQYDVQQGEwJJ&#13;
+TjEWMBQGA1UECBMNVXR0YXIgUHJhZGVzaDEOMAwGA1UEBxMFTm9pZGExJTAjBgNVBAoTHE9uZTk3&#13;
+IENvbW11bmljYXRpb25zIExpbWl0ZWQxGzAZBgNVBAMTEm5ldGMtdWF0LnBheXRtLmNvbTCCASIw&#13;
+DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJS/31I5LXeoJCsLNLEYevfvYT2+/ZdaeasLn1JW&#13;
+VnZoTRdtyFsz/4rtmEf7kTmdMUp8ur5z6kgboJvDrSzbEYw4dSpLbcbeRQ//2814Ay/oenYmeXis&#13;
+q1A7HUcNgLB+k8u5CdM+OOwEk4qetMnaXb5M+d7IGWf0mAuctr2jfN1jIml2xh3hCQpfKRVEYaWd&#13;
+TmM90MwyDaK8aH1GdfIJiWngL2WQW6nWhu5d9Yf3kxmwMd5+4zDcV/AB8aFm5sSooZrf7h4ENE3s&#13;
+RBMFmCWfoUR6LU7/C6gbqWEOrYD4/mkR1WWL2QuAcF3n0O2UHzW9d17899915CYIcNLSbr9AsKcC&#13;
+AwEAAaOCA9AwggPMMB8GA1UdIwQYMBaAFA+AYRyCMWHVLyjnjUY4tCzhxtniMB0GA1UdDgQWBBRC&#13;
+eryYzDMYNmtrjZqGZmQOtWMiVTAdBgNVHREEFjAUghJuZXRjLXVhdC5wYXl0bS5jb20wDgYDVR0P&#13;
+AQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjBrBgNVHR8EZDBiMC+gLaAr&#13;
+hilodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vc3NjYS1zaGEyLWc2LmNybDAvoC2gK4YpaHR0cDov&#13;
+L2NybDQuZGlnaWNlcnQuY29tL3NzY2Etc2hhMi1nNi5jcmwwTAYDVR0gBEUwQzA3BglghkgBhv1s&#13;
+AQEwKjAoBggrBgEFBQcCARYcaHR0cHM6Ly93d3cuZGlnaWNlcnQuY29tL0NQUzAIBgZngQwBAgIw&#13;
+fAYIKwYBBQUHAQEEcDBuMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wRgYI&#13;
+KwYBBQUHMAKGOmh0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydFNIQTJTZWN1cmVT&#13;
+ZXJ2ZXJDQS5jcnQwCQYDVR0TBAIwADCCAfYGCisGAQQB1nkCBAIEggHmBIIB4gHgAHYApLkJkLQY&#13;
+WBSHuxOizGdwCjw1mAT5G9+443fNDsgN3BAAAAFibFGeCAAABAMARzBFAiBhgMf63e/FBWE+ddij&#13;
+BKfgWrG5coSz5XjQp8e2UKqChAIhAO6yW+nOEepKPWKKfKp0SREMmC5A+0pR+4TKrPpekR87AHcA&#13;
+b1N2rDHwMRnYmQCkURX/dxUcEdkCwQApBo2yCJo32RMAAAFibFGfOwAABAMASDBGAiEA0sjw7Jxj&#13;
+aGP1y1fMA/PZPOoatXu31riGl85NBRMVYkACIQD0t+vUxoc5A+CkG23Ao4tMWXqA1z1MQBM6ordr&#13;
+LfRRzgB1ALvZ37wfinG1k5Qjl6qSe0c4V5UKq1LoGpCWZDaOHtGFAAABYmxRnjUAAAQDAEYwRAIg&#13;
+QK7PDlyu7xIq/2IBUBLZ7RGEGdRunfYcBGiW1SknZ50CIHBrnCrmamZ39pxEz+LysR3Jr80YOYtb&#13;
+F4yFdkKk/VAUAHYAVYHUwhaQNgFK6gubVzxT8MDkOHhwJQgXL6OqHQcT0wwAAAFibFGglgAABAMA&#13;
+RzBFAiA01j23Ewp5jKaOJZS8WwPqY2d/XHTEYaoMqt5VI7v7MwIhALJqAyJzH5iMt00EVdKRMycA&#13;
+1879oj87Q/hC6i0xOV1tMA0GCSqGSIb3DQEBCwUAA4IBAQCMUlyD2h5y/4VRoA8OGIY22OUiuw+w&#13;
+sucSkkwF1GF6vdy4rPYXi8urUQoqWijq4sY1DD+IxEenuhr/CqumdrmeecLoK+R5pDm4Gt6gCxQH&#13;
+Kq911vUIL3Qxd3V6Jj0VdHGkyRCmVmGjze/WOq63xyydJWlQUioX+rQjfo/2sn/0vv84FxkVQogR&#13;
+Rtgw1mm3mtMF2mLN9lyjGbGOktjKC54Y95ZYvkc9W2NWsLvDhOpNRaGiQp2GEn83J7qEiAbtbhKn&#13;
+3y2TPg28A0rBpaYIHFAOTPA+wJFNNAmKim8BPFVJO6EajksMx+R+zgwWtvActuY+M92xzyf97kby&#13;
+lwHn/xSu</X509Certificate></X509Data></KeyInfo></Signature></etc:RespPay>	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:14:09.037	Signed RespPay request. <?xml version="1.0" encoding="UTF-8" standalone="no"?><etc:RespPay xmlns:etc="http://npci.org/etc/schema/"><Head msgId="ACQ000011894208925" orgId="PAYM" ts="2025-09-18T12:14:08" ver="1.0"/><Txn id="00558295713515" note="" orgTxnId="" refId="257001L02090925121823" refUrl="" ts="2025-09-09T12:18:55" type="DEBIT"><RiskScores><Score provider="NPCI" type="TXNRISK" value="00999"/></RiskScores></Txn><Resp merchantId="257001" respCode="000" result="ACCEPTED" ts="2025-09-18T12:14:08"><Ref accType="" addr="34161FA820328E40071FFFC0@608032.iin.npci" approvalNum="7424" avalBal="" customerName="" errCode="081" ledgerBal="" maskedAccountNumber="" settAmount="90.00" settCurrency="INR" type="PAYER"/></Resp><Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><DigestValue>VZOJUYkidcoM7GZwziFKdpGj45rOM08dnNrzAa5X1Kw=</DigestValue></Reference></SignedInfo><SignatureValue>CJ1rPfBxKSi4q0NriY+EFgs/Khpb/v+n4n54gHnbMxgrmsrsCv7OWnVCKJkCK+gRGBOhe61gWWFV&#13;
+O7U/+ASrjpO9aP3DSG9L9uYdUniBHKzMZAZ7LnG71KBkvihastfqHiYz8wBiOFgMvx9yh0Z04OWr&#13;
++AtC869UVln2T1DNCv6bcwadaRaDhQ0XuBevzORZLxQQA4m9UkO+V5PwkT2ifAzuCGgwfTusoaKQ&#13;
+S8pFu86FrQeej1WzIpRbvsdVuF/z+BmAL1eT0eUerkp8WW6YyMVqhtdLYvuI0EoZgfTVAMoWzVTx&#13;
+v59SOJcyDHTh3Q3kMghzt5qk+Uw6o18Rm6rYuQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=netc-uat.paytm.com,O=One97 Communications Limited,L=Noida,ST=Uttar Pradesh,C=IN</X509SubjectName><X509Certificate>MIIHIjCCBgqgAwIBAgIQDc2bPRcBC8If34pOCuNLXzANBgkqhkiG9w0BAQsFADBNMQswCQYDVQQG&#13;
+EwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMScwJQYDVQQDEx5EaWdpQ2VydCBTSEEyIFNlY3Vy&#13;
+ZSBTZXJ2ZXIgQ0EwHhcNMTgwMzI4MDAwMDAwWhcNMjAwNjMwMDAwMDAwWjB5MQswCQYDVQQGEwJJ&#13;
+TjEWMBQGA1UECBMNVXR0YXIgUHJhZGVzaDEOMAwGA1UEBxMFTm9pZGExJTAjBgNVBAoTHE9uZTk3&#13;
+IENvbW11bmljYXRpb25zIExpbWl0ZWQxGzAZBgNVBAMTEm5ldGMtdWF0LnBheXRtLmNvbTCCASIw&#13;
+DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJS/31I5LXeoJCsLNLEYevfvYT2+/ZdaeasLn1JW&#13;
+VnZoTRdtyFsz/4rtmEf7kTmdMUp8ur5z6kgboJvDrSzbEYw4dSpLbcbeRQ//2814Ay/oenYmeXis&#13;
+q1A7HUcNgLB+k8u5CdM+OOwEk4qetMnaXb5M+d7IGWf0mAuctr2jfN1jIml2xh3hCQpfKRVEYaWd&#13;
+TmM90MwyDaK8aH1GdfIJiWngL2WQW6nWhu5d9Yf3kxmwMd5+4zDcV/AB8aFm5sSooZrf7h4ENE3s&#13;
+RBMFmCWfoUR6LU7/C6gbqWEOrYD4/mkR1WWL2QuAcF3n0O2UHzW9d17899915CYIcNLSbr9AsKcC&#13;
+AwEAAaOCA9AwggPMMB8GA1UdIwQYMBaAFA+AYRyCMWHVLyjnjUY4tCzhxtniMB0GA1UdDgQWBBRC&#13;
+eryYzDMYNmtrjZqGZmQOtWMiVTAdBgNVHREEFjAUghJuZXRjLXVhdC5wYXl0bS5jb20wDgYDVR0P&#13;
+AQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjBrBgNVHR8EZDBiMC+gLaAr&#13;
+hilodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vc3NjYS1zaGEyLWc2LmNybDAvoC2gK4YpaHR0cDov&#13;
+L2NybDQuZGlnaWNlcnQuY29tL3NzY2Etc2hhMi1nNi5jcmwwTAYDVR0gBEUwQzA3BglghkgBhv1s&#13;
+AQEwKjAoBggrBgEFBQcCARYcaHR0cHM6Ly93d3cuZGlnaWNlcnQuY29tL0NQUzAIBgZngQwBAgIw&#13;
+fAYIKwYBBQUHAQEEcDBuMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wRgYI&#13;
+KwYBBQUHMAKGOmh0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydFNIQTJTZWN1cmVT&#13;
+ZXJ2ZXJDQS5jcnQwCQYDVR0TBAIwADCCAfYGCisGAQQB1nkCBAIEggHmBIIB4gHgAHYApLkJkLQY&#13;
+WBSHuxOizGdwCjw1mAT5G9+443fNDsgN3BAAAAFibFGeCAAABAMARzBFAiBhgMf63e/FBWE+ddij&#13;
+BKfgWrG5coSz5XjQp8e2UKqChAIhAO6yW+nOEepKPWKKfKp0SREMmC5A+0pR+4TKrPpekR87AHcA&#13;
+b1N2rDHwMRnYmQCkURX/dxUcEdkCwQApBo2yCJo32RMAAAFibFGfOwAABAMASDBGAiEA0sjw7Jxj&#13;
+aGP1y1fMA/PZPOoatXu31riGl85NBRMVYkACIQD0t+vUxoc5A+CkG23Ao4tMWXqA1z1MQBM6ordr&#13;
+LfRRzgB1ALvZ37wfinG1k5Qjl6qSe0c4V5UKq1LoGpCWZDaOHtGFAAABYmxRnjUAAAQDAEYwRAIg&#13;
+QK7PDlyu7xIq/2IBUBLZ7RGEGdRunfYcBGiW1SknZ50CIHBrnCrmamZ39pxEz+LysR3Jr80YOYtb&#13;
+F4yFdkKk/VAUAHYAVYHUwhaQNgFK6gubVzxT8MDkOHhwJQgXL6OqHQcT0wwAAAFibFGglgAABAMA&#13;
+RzBFAiA01j23Ewp5jKaOJZS8WwPqY2d/XHTEYaoMqt5VI7v7MwIhALJqAyJzH5iMt00EVdKRMycA&#13;
+1879oj87Q/hC6i0xOV1tMA0GCSqGSIb3DQEBCwUAA4IBAQCMUlyD2h5y/4VRoA8OGIY22OUiuw+w&#13;
+sucSkkwF1GF6vdy4rPYXi8urUQoqWijq4sY1DD+IxEenuhr/CqumdrmeecLoK+R5pDm4Gt6gCxQH&#13;
+Kq911vUIL3Qxd3V6Jj0VdHGkyRCmVmGjze/WOq63xyydJWlQUioX+rQjfo/2sn/0vv84FxkVQogR&#13;
+Rtgw1mm3mtMF2mLN9lyjGbGOktjKC54Y95ZYvkc9W2NWsLvDhOpNRaGiQp2GEn83J7qEiAbtbhKn&#13;
+3y2TPg28A0rBpaYIHFAOTPA+wJFNNAmKim8BPFVJO6EajksMx+R+zgwWtvActuY+M92xzyf97kby&#13;
+lwHn/xSu</X509Certificate></X509Data></KeyInfo></Signature></etc:RespPay>	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:14:08.952	received data from resp-pay queue ='{"txn":{"note":null,"ts":"2025-09-09T12:18:55","type":"DEBIT","txn_id":"00558295713515","org_txn_id":"","ref_id":"257001L02090925121823","ref_url":"","risk_scores":[{"provider":"NPCI","type":"TXNRISK","value":"00999"}]},"resp":{"result":"ACCEPTED","ts":"2025-09-18T12:14:08","ref":{"addr":"34161FA820328E40071FFFC0@608032.iin.npci","type":"PAYER","approval_num":"7424","aval_bal":null,"cust_name":null,"err_code":"081","ledger_bal":null,"masked_acc_num":null,"set_amt":"90.00","set_curr":"INR"},"mer_id":"257001","resp_code":"000"},"msg_id":"ACQ000011894208925","reference_id":2416427424,"db_id":3847808565}'	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:14:08.951	[KafkaListenerAspect] consumer name : consumeReqPay , appId: IssuerSwitch	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:12:07.808	className=RequestDataRepository, methodName=save, group=DB, Time elapsed=14 ms	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:12:07.794	Inserting id : 3847808565 to db.	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:12:07.793	[KafkaListenerAspect] consumer name : consumeDataToDatabase , appId: NetcEngine	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:12:07.793	received data from data to database queue ='RequestDataToDatabaseDetails(reqPayKafka=ReqPayKafka(dbId=3847808565, msgId=ACQ000011894208925, orgId=ICIA, msgDate=2025-09-09T12:18:56, txnId=00558295713515, transactionType=DEBIT, type=Toll, plazaId=257001, laneId=L02, laneDir=N, readerDate=2025-09-18T12:11:23, tid=E20034120124FF000AC920EB, avc=VC20, tagId=34161FA820328E4002A37C60, wim=, amount=90.00, acknowledgeTime=2025-09-18T12:12:07, riskScores=[RiskScore(provider=NPCI, type=TXNRISK, value=00999)], payerDetails=PayerDetails(address=34161FA820328E40071FFFC0@608032.iin.npci, currency=INR, name=, type=PERSON), payeeDetails=PayeeDetails(address=720301@iin.npci, name=, type=MERCHANT), merchantDetails=MerchantDetails(geoCode=13.476043,74.7127896, type=Toll, name=Sasthan Toll Plaza, subType=National, readerId=257001, readerVerificationResult=ReaderVerificationResult(signData=, signAuth=VALID, tagVerified=NETC TAG, procRestrictionResult=, vehicleAuth=UNKNOWN, publicKeyCvv=, txnCounter=5485, txnStatus=SUCCESS), parkingDetails=ParkingDetails(floor=, readerId=, entryGateNumber=, exitGateNumber=)), vehicleDetails=VehicleDetails(vehicleClass=VC4, registrationNumber=FWErWPwwRIGBzEqc/kG4zAtQbEeSLuc+jH5rRL6c7zrGDPI6mYqe71mJhtfIc0nx+4dwmvw7ltr1E0NNk/zUTx9g/h8bc/ZQ/brouCWtJo6c+m1A2FX0hEENnKAwhQdxRLlBG8794JYk+j7HPePiFforClkbOrwf6Tioq66Fxs5jG7oUQ7qioF0AD4n2VzDZPAIvBucJOXuvQbYYO0EwiELxSmfT96rGS6lJeT8DlLnLKFAN/TRvuflHVYxkyJ7NJcndYv8UlFE44j89pnX+c9xoK2qLy8Jdud18HuMnU9IRc+aFa5+XH/ci+vv1pAXZrF7EJ5g+u8mhisjij2P7NQ==, tagStatus=A, issueDate=19-12-2019, excCode=00, bankId=608032, commercialVehicle=F), transactionDetails=TransactionDetails(note=null, refId=257001L02090925121823, refUrl=, orgTxnId=, txnDate=2025-09-09T12:18:55)), id=3847808565)'	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:12:07.793	after consuming data with handle	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:12:07.718	reqPayService | High ack time | Total: 157 | Bucket: 100to200 | AsyncRepo: 78 | RequestData: 61 | KafkaInsert: 17	WARN	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:12:07.706	Kafka startTimeMs: 1758177727706	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:12:07.706	Kafka version: 3.1.2	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:12:07.706	Kafka commitId: f8c67dc3ae0a3265	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:12:07.704	Idempotence will be disabled because acks is set to 1, not set to 'all'.	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:12:07.704	ProducerConfig values: 
+	acks = 1
+	batch.size = 16384
+	bootstrap.servers = [10.100.241.139:9092, 10.100.241.140:9092, 10.100.241.141:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = producer-4
+	compression.type = snappy
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = false
+	interceptor.classes = [com.paytm.acquirer.netc.config.CorrelationIdProducerInterceptor]
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 20
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 1000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.springframework.kafka.support.serializer.JsonSerializer
+	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:12:07.704	sending to topic='fastag_issuer_staging_req_pay_staging_new' and data='{"db_id":3847808565,"msg_id":"ACQ000011894208925","org_id":"ICIA","msg_dt":"2025-09-09T12:18:56","txn_id":"00558295713515","txn_type":"DEBIT","type":"Toll","plaza_id":"257001","lane_id":"L02","lane_dir":"N","reader_dt":"2025-09-18T12:11:23","tid":"E20034120124FF000AC920EB","avc":"VC20","tag_id":"34161FA820328E4002A37C60","wim":"","amount":"90.00","ack_dt":"2025-09-18T12:12:07","risk_scores":[{"provider":"NPCI","type":"TXNRISK","value":"00999"}],"payer_dtl":{"add":"34161FA820328E40071FFFC0@608032.iin.npci","curr":"INR","type":"PERSON"},"payee_dtl":{"add":"720301@iin.npci","type":"MERCHANT"},"mer_dtl":{"geo_code":"13.476043,74.7127896","tp":"Toll","name":"Sasthan Toll Plaza","sub_tp":"National","rdr_id":"257001","rdr_ver_res":{"sign_auth":"VALID","tag_ver":"NETC TAG","veh_auth":"UNKNOWN","txn_ctr":"5485","txn_sts":"SUCCESS"},"parking_det":{"floor":"","readerId":"","entryGateNumber":"","exitGateNumber":""}},"veh_dtl":{"veh_cls":"VC4","reg_num":"FWErWPwwRIGBzEqc/kG4zAtQbEeSLuc+jH5rRL6c7zrGDPI6mYqe71mJhtfIc0nx+4dwmvw7ltr1E0NNk/zUTx9g/h8bc/ZQ/brouCWtJo6c+m1A2FX0hEENnKAwhQdxRLlBG8794JYk+j7HPePiFforClkbOrwf6Tioq66Fxs5jG7oUQ7qioF0AD4n2VzDZPAIvBucJOXuvQbYYO0EwiELxSmfT96rGS6lJeT8DlLnLKFAN/TRvuflHVYxkyJ7NJcndYv8UlFE44j89pnX+c9xoK2qLy8Jdud18HuMnU9IRc+aFa5+XH/ci+vv1pAXZrF7EJ5g+u8mhisjij2P7NQ==","tag_status":"A","iss_dt":"19-12-2019","exc_code":"00","bank_id":"608032","com_veh":"F"},"txn_dtl":{"ref_id":"257001L02090925121823","txn_dt":"2025-09-09T12:18:55"}}'	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:12:07.676	Kafka version: 3.1.2	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:12:07.676	Kafka commitId: f8c67dc3ae0a3265	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:12:07.676	Kafka startTimeMs: 1758177727676	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:12:07.675	ProducerConfig values: 
+	acks = 1
+	batch.size = 16384
+	bootstrap.servers = [10.100.241.139:9092, 10.100.241.140:9092, 10.100.241.141:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = producer-3
+	compression.type = snappy
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = false
+	interceptor.classes = [com.paytm.acquirer.netc.config.CorrelationIdProducerInterceptor]
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 20
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 1000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.springframework.kafka.support.serializer.JsonSerializer
+	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:12:07.675	Idempotence will be disabled because acks is set to 1, not set to 'all'.	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:12:07.674	sending to topic='fastag_issuer_staging_request_data_to_database' and data='KafkaEvent(payload=RequestDataToDatabaseDetails(reqPayKafka=ReqPayKafka(dbId=3847808565, msgId=ACQ000011894208925, orgId=ICIA, msgDate=2025-09-09T12:18:56, txnId=00558295713515, transactionType=DEBIT, type=Toll, plazaId=257001, laneId=L02, laneDir=N, readerDate=2025-09-18T12:11:23, tid=E20034120124FF000AC920EB, avc=VC20, tagId=34161FA820328E4002A37C60, wim=, amount=90.00, acknowledgeTime=2025-09-18T12:12:07, riskScores=[RiskScore(provider=NPCI, type=TXNRISK, value=00999)], payerDetails=PayerDetails(address=34161FA820328E40071FFFC0@608032.iin.npci, currency=INR, name=, type=PERSON), payeeDetails=PayeeDetails(address=720301@iin.npci, name=, type=MERCHANT), merchantDetails=MerchantDetails(geoCode=13.476043,74.7127896, type=Toll, name=Sasthan Toll Plaza, subType=National, readerId=257001, readerVerificationResult=ReaderVerificationResult(signData=, signAuth=VALID, tagVerified=NETC TAG, procRestrictionResult=, vehicleAuth=UNKNOWN, publicKeyCvv=, txnCounter=5485, txnStatus=SUCCESS), parkingDetails=ParkingDetails(floor=, readerId=, entryGateNumber=, exitGateNumber=)), vehicleDetails=VehicleDetails(vehicleClass=VC4, registrationNumber=FWErWPwwRIGBzEqc/kG4zAtQbEeSLuc+jH5rRL6c7zrGDPI6mYqe71mJhtfIc0nx+4dwmvw7ltr1E0NNk/zUTx9g/h8bc/ZQ/brouCWtJo6c+m1A2FX0hEENnKAwhQdxRLlBG8794JYk+j7HPePiFforClkbOrwf6Tioq66Fxs5jG7oUQ7qioF0AD4n2VzDZPAIvBucJOXuvQbYYO0EwiELxSmfT96rGS6lJeT8DlLnLKFAN/TRvuflHVYxkyJ7NJcndYv8UlFE44j89pnX+c9xoK2qLy8Jdud18HuMnU9IRc+aFa5+XH/ci+vv1pAXZrF7EJ5g+u8mhisjij2P7NQ==, tagStatus=A, issueDate=19-12-2019, excCode=00, bankId=608032, commercialVehicle=F), transactionDetails=TransactionDetails(note=null, refId=257001L02090925121823, refUrl=, orgTxnId=, txnDate=2025-09-09T12:18:55)), id=3847808565))'	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:12:07.650	Error while decrypting registration number	ERROR	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:12:07.638	className=AsyncTransactionRepository, methodName=save, group=DB, Time elapsed=76 ms	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:12:07.552	[KafkaListenerAspect] consumer name : consumeReqPayXml , appId: NetcEngine	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:12:07.552	received data from resp-pay-xml queue ='{"namespace":"http://npci.org/etc/schema/","header":{"version":"1.0","timeStamp":"2025-09-09T12:18:56","organizationId":"ICIA","messageId":"ACQ000011894208925"},"metaTags":[{"name":"PAYREQSTART","value":"2025-09-09T12:18:55"},{"name":"PAYREQEND","value":"2025-09-09T12:18:55"}],"transaction":{"id":"00558295713515","note":null,"referenceId":"257001L02090925121823","referenceUrl":"","timeStamp":"2025-09-09T12:18:55","type":"DEBIT","originalTransactionId":"","riskScores":[{"provider":"NPCI","type":"TXNRISK","value":"00999"}]},"merchant":{"id":"257001","name":"Sasthan Toll Plaza","geoCode":"13.476043,74.7127896","type":"Toll","subtype":"National","lane":{"id":"L02","direction":"N","readerId":""},"parking":{"floor":"","zone":"","slotId":"","readerId":""},"verificationResult":{"tsRead":"2025-09-18T12:11:23","signData":"","signAuth":"VALID","tagVerified":"NETC TAG","procRestrictionResult":"","vehicleAuth":"UNKNOWN","publicKeyCVV":"","txnCounter":"5485","txnStatus":"SUCCESS"}},"vehicle":{"tagId":"34161FA820328E4002A37C60","vehicleTId":"E20034120124FF000AC920EB","vehicleClassByAvc":"VC20","vehicleWeight":"","vehicleDetails":{"details":[{"name":"BANKID","value":"608032"},{"name":"EXCCODE","value":"00"},{"name":"VEHICLECLASS","value":"VC4"},{"name":"REGNUMBER","value":"FWErWPwwRIGBzEqc/kG4zAtQbEeSLuc+jH5rRL6c7zrGDPI6mYqe71mJhtfIc0nx+4dwmvw7ltr1E0NNk/zUTx9g/h8bc/ZQ/brouCWtJo6c+m1A2FX0hEENnKAwhQdxRLlBG8794JYk+j7HPePiFforClkbOrwf6Tioq66Fxs5jG7oUQ7qioF0AD4n2VzDZPAIvBucJOXuvQbYYO0EwiELxSmfT96rGS6lJeT8DlLnLKFAN/TRvuflHVYxkyJ7NJcndYv8UlFE44j89pnX+c9xoK2qLy8Jdud18HuMnU9IRc+aFa5+XH/ci+vv1pAXZrF7EJ5g+u8mhisjij2P7NQ=="},{"name":"ISSUEDATE","value":"19-12-2019"},{"name":"COMVEHICLE","value":"F"},{"name":"TAGSTATUS","value":"A"}]}},"payer":{"addr":"34161FA820328E40071FFFC0@608032.iin.npci","name":"","type":"PERSON","amount":{"value":"90.00","curr":"INR"}},"payee":{"addr":"720301@iin.npci","name":"","type":"MERCHANT","amount":null}}'	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:12:07.490	API : POST:/reqPayService, timeConsumed : 74, responseHttpCode  : 202, appId : null	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:12:07.476	Kafka version: 3.1.2	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:12:07.476	Kafka commitId: f8c67dc3ae0a3265	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:12:07.476	Kafka startTimeMs: 1758177727476	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:12:07.474	ProducerConfig values: 
+	acks = 1
+	batch.size = 16384
+	bootstrap.servers = [10.100.241.139:9092, 10.100.241.140:9092, 10.100.241.141:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = producer-2
+	compression.type = snappy
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = false
+	interceptor.classes = [com.paytm.acquirer.netc.config.CorrelationIdProducerInterceptor]
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 20
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 1000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.springframework.kafka.support.serializer.JsonSerializer
+	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:12:07.474	sending to topic='fastag_issuer_staging_req_pay_xml' and data='{"namespace":"http://npci.org/etc/schema/","header":{"version":"1.0","timeStamp":"2025-09-09T12:18:56","organizationId":"ICIA","messageId":"ACQ000011894208925"},"metaTags":[{"name":"PAYREQSTART","value":"2025-09-09T12:18:55"},{"name":"PAYREQEND","value":"2025-09-09T12:18:55"}],"transaction":{"id":"00558295713515","referenceId":"257001L02090925121823","timeStamp":"2025-09-09T12:18:55","type":"DEBIT","riskScores":[{"provider":"NPCI","type":"TXNRISK","value":"00999"}]},"merchant":{"id":"257001","name":"Sasthan Toll Plaza","geoCode":"13.476043,74.7127896","type":"Toll","subtype":"National","lane":{"id":"L02","direction":"N"},"parking":{},"verificationResult":{"tsRead":"2025-09-18T12:11:23","signAuth":"VALID","tagVerified":"NETC TAG","vehicleAuth":"UNKNOWN","txnCounter":"5485","txnStatus":"SUCCESS"}},"vehicle":{"tagId":"34161FA820328E4002A37C60","vehicleTId":"E20034120124FF000AC920EB","vehicleClassByAvc":"VC20","vehicleDetails":{"details":[{"name":"BANKID","value":"608032"},{"name":"EXCCODE","value":"00"},{"name":"VEHICLECLASS","value":"VC4"},{"name":"REGNUMBER","value":"FWErWPwwRIGBzEqc/kG4zAtQbEeSLuc+jH5rRL6c7zrGDPI6mYqe71mJhtfIc0nx+4dwmvw7ltr1E0NNk/zUTx9g/h8bc/ZQ/brouCWtJo6c+m1A2FX0hEENnKAwhQdxRLlBG8794JYk+j7HPePiFforClkbOrwf6Tioq66Fxs5jG7oUQ7qioF0AD4n2VzDZPAIvBucJOXuvQbYYO0EwiELxSmfT96rGS6lJeT8DlLnLKFAN/TRvuflHVYxkyJ7NJcndYv8UlFE44j89pnX+c9xoK2qLy8Jdud18HuMnU9IRc+aFa5+XH/ci+vv1pAXZrF7EJ5g+u8mhisjij2P7NQ=="},{"name":"ISSUEDATE","value":"19-12-2019"},{"name":"COMVEHICLE","value":"F"},{"name":"TAGSTATUS","value":"A"}]}},"payer":{"addr":"34161FA820328E40071FFFC0@608032.iin.npci","type":"PERSON","amount":{"value":"90.00","curr":"INR"}},"payee":{"addr":"720301@iin.npci","type":"MERCHANT"}}'	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:12:07.474	Idempotence will be disabled because acks is set to 1, not set to 'all'.	INFO	04f31803-8c3e-476b-91fa-051bc130df9b
+	Sep 18, 2025 @ 12:12:07.424	reqPayService from NPCI with data : <?xml version="1.0" encoding="UTF-8"?><etc:ReqPay xmlns:etc="http://npci.org/etc/schema/"><Head msgId="ACQ000011894208925" orgId="ICIA" ts="2025-09-09T12:18:56" ver="1.0"/><Meta><Tag name="PAYREQSTART" value="2025-09-09T12:18:55"/><Tag name="PAYREQEND" value="2025-09-09T12:18:55"/></Meta><Txn id="00558295713515" orgTxnId="" refId="257001L02090925121823" refUrl="" ts="2025-09-09T12:18:55" type="DEBIT"><RiskScores><Score provider="NPCI" type="TXNRISK" value="00999"/></RiskScores></Txn><Merchant geoCode="13.476043,74.7127896" id="257001" name="Sasthan Toll Plaza" subtype="National" type="Toll"><Lane direction="N" id="L02" readerId=""/><Parking floor="" readerId="" slotId="" zone=""/><ReaderVerificationResult procRestrictionResult="" publicKeyCVV="" signAuth="VALID" signData="" tagVerified="NETC TAG" tsRead="2025-09-18T12:11:23" txnCounter="5485" txnStatus="SUCCESS" vehicleAuth="UNKNOWN"/></Merchant><Vehicle TID="E20034120124FF000AC920EB" avc="VC20" tagId="34161FA820328E4002A37C60" wim=""><VehicleDetails><Detail name="VEHICLECLASS" value="VC4"/><Detail name="REGNUMBER" value="FWErWPwwRIGBzEqc/kG4zAtQbEeSLuc+jH5rRL6c7zrGDPI6mYqe71mJhtfIc0nx+4dwmvw7ltr1E0NNk/zUTx9g/h8bc/ZQ/brouCWtJo6c+m1A2FX0hEENnKAwhQdxRLlBG8794JYk+j7HPePiFforClkbOrwf6Tioq66Fxs5jG7oUQ7qioF0AD4n2VzDZPAIvBucJOXuvQbYYO0EwiELxSmfT96rGS6lJeT8DlLnLKFAN/TRvuflHVYxkyJ7NJcndYv8UlFE44j89pnX+c9xoK2qLy8Jdud18HuMnU9IRc+aFa5+XH/ci+vv1pAXZrF7EJ5g+u8mhisjij2P7NQ=="/><Detail name="TAGSTATUS" value="A"/><Detail name="ISSUEDATE" value="19-12-2019"/><Detail name="EXCCODE" value="00"/><Detail name="BANKID" value="608032"/><Detail name="COMVEHICLE" value="F"/></VehicleDetails></Vehicle><Payer addr="34161FA820328E40071FFFC0@608032.iin.npci" name="" type="PERSON"><Amount curr="INR" value="90.00"/></Payer><Payee addr="720301@iin.npci" name="" type="MERCHANT"/></etc:ReqPay> 
 
